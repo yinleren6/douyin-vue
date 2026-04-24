@@ -9,22 +9,14 @@ import VueMacros from 'unplugin-vue-macros/vite'
 
 const lifecycle = process.env.npm_lifecycle_event
 
-#export default defineConfig((): Promise<UserConfig> => {
- # let latestCommitHash = ''
 
-#  return new Promise((resolve) => {
-#    getLastCommit((err, commit) => {
-#      if (!err) {
-#        latestCommitHash = commit.shortHash
-#      }
- #     resolve({
      export default defineConfig(() => {
   let latestCommitHash = ''
   try { getLastCommit((err, commit) => { if (!err) latestCommitHash = commit.shortHash }) } catch {}
   // 下面直接放你原来的所有配置
-  return {/* 你的完整配置 */
+  return {
  
-      #####
+    
         base: './',
         envDir: 'env',
         plugins: [
@@ -184,7 +176,7 @@ const lifecycle = process.env.npm_lifecycle_event
         preview: {
           port: 5555
         }
-        ####
+        
         
         
         
