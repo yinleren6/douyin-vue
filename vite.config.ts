@@ -6,6 +6,7 @@ import { Plugin as importToCDN } from 'vite-plugin-cdn-import'
 import { fileURLToPath, URL } from 'node:url'
 import { getLastCommit } from 'git-last-commit'
 import VueMacros from 'unplugin-vue-macros/vite'
+import { cloudflare } from '@cloudflare/vite-plugin'
 
 const lifecycle = process.env.npm_lifecycle_event
 
