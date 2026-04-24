@@ -9,15 +9,22 @@ import VueMacros from 'unplugin-vue-macros/vite'
 
 const lifecycle = process.env.npm_lifecycle_event
 
-export default defineConfig((): Promise<UserConfig> => {
-  let latestCommitHash = ''
+#export default defineConfig((): Promise<UserConfig> => {
+ # let latestCommitHash = ''
 
-  return new Promise((resolve) => {
-    getLastCommit((err, commit) => {
-      if (!err) {
-        latestCommitHash = commit.shortHash
-      }
-      resolve({
+#  return new Promise((resolve) => {
+#    getLastCommit((err, commit) => {
+#      if (!err) {
+#        latestCommitHash = commit.shortHash
+#      }
+ #     resolve({
+     export default defineConfig(() => {
+  let latestCommitHash = ''
+  try { getLastCommit((err, commit) => { if (!err) latestCommitHash = commit.shortHash }) } catch {}
+  // 下面直接放你原来的所有配置
+  return {/* 你的完整配置 */
+ 
+      #####
         base: './',
         envDir: 'env',
         plugins: [
@@ -57,7 +64,7 @@ export default defineConfig((): Promise<UserConfig> => {
                 path: 'https://lib.baomitu.com/Mock.js/1.0.1-beta3/mock-min.js'
               }
             ]
-          })
+          }),
           // viteCompression({
           //   verbose: false,
           //   disable: false,
@@ -97,6 +104,7 @@ export default defineConfig((): Promise<UserConfig> => {
           //     ],
           //   },
           // }),
+          cloudflare()
         ],
         resolve: {
           alias: {
@@ -176,7 +184,15 @@ export default defineConfig((): Promise<UserConfig> => {
         preview: {
           port: 5555
         }
-      })
+        ####
+        
+        
+        
+        
+        
+      }
+      
+      
+      
     })
-  })
-})
+ 
